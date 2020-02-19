@@ -20,6 +20,8 @@ csvpath = os.path.join('/Users/tylermneher/RU Data Science/TylerRUDataScienceWor
 
 NetProfitLoss = []
 NetProfitLossTOTAL = 0
+MonthToMonthDifferences = []
+MonthToMonthDifferencesTOTAL = 0
 
 with open(csvpath, newline='') as csvfile:
     
@@ -28,13 +30,16 @@ with open(csvpath, newline='') as csvfile:
     RowCount = 0
     csvfile.__next__()
     for row in csvreader:
-        NetProfitLoss.append(float(row[1]))
+        NetProfitLoss.append(int(row[1]))
         RowCount = RowCount + 1
- 
+    
+    for i in NetProfitLoss:
+        NetProfitLossTOTAL = NetProfitLossTOTAL + i
 
-    #Report
+    # Report
     print("Financial Analysis")
     print("----------------------------")
-    #total num months
+    # total num months
     print(f"Total Months: {RowCount}")
-    print(f"Total: ${NetProfitLoss}")
+    # total $
+    print(f"Total: ${NetProfitLossTOTAL}")
