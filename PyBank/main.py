@@ -49,7 +49,7 @@ with open(csvpath, newline='') as csvfile:
     for i in MonthDiffSet:
         MonthDiffSetTOTAL = MonthDiffSetTOTAL + i
     LengthMonthDiffSet = len(MonthDiffSet)
-    AverageChange = int(MonthDiffSetTOTAL/(LengthMonthDiffSet+1))
+    AverageChange = int(MonthDiffSetTOTAL/(LengthMonthDiffSet))
     
     minn = MonthDiffSet.index(min(MonthDiffSet))
     maxx = MonthDiffSet.index(max(MonthDiffSet))
