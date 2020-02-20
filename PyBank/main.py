@@ -18,10 +18,11 @@ import csv
 
 csvpath = os.path.join('/Users/tylermneher/RU Data Science/TylerRUDataScienceWorkspace/02-Homework/03-Python/python-challenge/PyBank/budget_data.csv')
 
-NetProfitLoss = []
+MonthToMonth = []
+MonthYear = []
 NetProfitLossTOTAL = 0
-MonthToMonthDifferences = []
-MonthToMonthDifferencesTOTAL = 0
+MonthDiffSet = []
+MonthDiffSetTOTAL = 0
 
 with open(csvpath, newline='') as csvfile:
     
@@ -30,16 +31,54 @@ with open(csvpath, newline='') as csvfile:
     RowCount = 0
     csvfile.__next__()
     for row in csvreader:
-        NetProfitLoss.append(int(row[1]))
+        MonthToMonth.append(int(row[1]))
+        MonthYear.append(row[0])
         RowCount = RowCount + 1
     
-    for i in NetProfitLoss:
+    for i in MonthToMonth:
         NetProfitLossTOTAL = NetProfitLossTOTAL + i
+    
+    LengthMonthToMonth = len(MonthToMonth)
+
+    for x in range(1, LengthMonthToMonth):
+        second = float(MonthToMonth[x])
+        first = float(MonthToMonth[x-1])
+        MonthDiffSet.append(float(second - first))
+    
+
+    for i in MonthDiffSet:
+        MonthDiffSetTOTAL = MonthDiffSetTOTAL + i
+    LengthMonthDiffSet = len(MonthDiffSet)
+    AverageChange = int(MonthDiffSetTOTAL/(LengthMonthDiffSet+1))
+    
+    minn = MonthDiffSet.index(min(MonthDiffSet))
+    maxx = MonthDiffSet.index(max(MonthDiffSet))
+
+    minnMonthYear = MonthYear[minn+1]
+    maxxMonthYear = MonthYear[maxx+1]
 
     # Report
-    print("Financial Analysis")
-    print("----------------------------")
-    # total num months
-    print(f"Total Months: {RowCount}")
-    # total $
-    print(f"Total: ${NetProfitLossTOTAL}")
+    line1 = "Financial Analysis"
+    line2 = "----------------------------"
+    line3 = f"Total Months: {RowCount}"
+    line4 = f"Total: ${NetProfitLossTOTAL}"
+    line5 = f"Average Change: ${AverageChange}"
+    line6 = f"Greatest Increase in Profits: {maxxMonthYear} (${int(MonthDiffSet[maxx])})"
+    line7 = f"Greatest Increase in Profits: {minnMonthYear} (${int(MonthDiffSet[minn])})"
+
+    print(line1)
+    print(line2)
+    print(line3)
+    print(line4)
+    print(line5)
+    print(line6)
+    print(line7)
+
+    financialAnalysis = open("/Users/tylermneher/RU Data Science/TylerRUDataScienceWorkspace/02-Homework/03-Python/python-challenge/PyBank/FinancialAnalysis.txt", "w")
+    financialAnalysis.write(line1+"\n")
+    financialAnalysis.write(line2+"\n")
+    financialAnalysis.write(line3+"\n")
+    financialAnalysis.write(line4+"\n")
+    financialAnalysis.write(line5+"\n")
+    financialAnalysis.write(line6+"\n")
+    financialAnalysis.write(line7+"\n")
