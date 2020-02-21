@@ -64,7 +64,7 @@ with open(csvpath, newline='') as csvfile:
     line4 = f"Total: ${NetProfitLossTOTAL}"
     line5 = f"Average Change: ${AverageChange}"
     line6 = f"Greatest Increase in Profits: {maxxMonthYear} (${int(MonthDiffSet[maxx])})"
-    line7 = f"Greatest Increase in Profits: {minnMonthYear} (${int(MonthDiffSet[minn])})"
+    line7 = f"Greatest Decrease in Profits: {minnMonthYear} (${int(MonthDiffSet[minn])})"
 
     print(line1)
     print(line2)
