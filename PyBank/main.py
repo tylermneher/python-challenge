@@ -16,7 +16,7 @@
 import os
 import csv
 
-csvpath = os.path.join('/Users/tylermneher/RU Data Science/TylerRUDataScienceWorkspace/02-Homework/03-Python/python-challenge/PyBank/budget_data.csv')
+csvpath = os.path.join('/python-challenge/PyBank/budget_data.csv')
 
 MonthToMonth = []
 MonthYear = []
