@@ -74,7 +74,7 @@ with open(csvpath, newline='') as csvfile:
     print(line6)
     print(line7)
 
-    financialAnalysis = open("/Users/tylermneher/RU Data Science/TylerRUDataScienceWorkspace/02-Homework/03-Python/python-challenge/PyBank/FinancialAnalysis.txt", "w")
+    financialAnalysis = open("/python-challenge/PyBank/FinancialAnalysis.txt", "w")
     financialAnalysis.write(line1+"\n")
     financialAnalysis.write(line2+"\n")
     financialAnalysis.write(line3+"\n")
