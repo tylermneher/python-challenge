@@ -16,7 +16,7 @@
 import os
 import csv
 
-csvpath = os.path.join('/python-challenge/PyBank/budget_data.csv')
+csvpath = os.path.join('budget_data.csv')
 
 MonthToMonth = []
 MonthYear = []
@@ -74,7 +74,7 @@ with open(csvpath, newline='') as csvfile:
     print(line6)
     print(line7)
 
-    financialAnalysis = open("/python-challenge/PyBank/FinancialAnalysis.txt", "w")
+    financialAnalysis = open("FinancialAnalysis.txt", "w")
     financialAnalysis.write(line1+"\n")
     financialAnalysis.write(line2+"\n")
     financialAnalysis.write(line3+"\n")

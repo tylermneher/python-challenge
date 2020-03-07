@@ -37,7 +37,7 @@
 import os
 import csv
 
-csvpath = os.path.join('/python-challenge/PyPoll/election_data.csv')
+csvpath = os.path.join('election_data.csv')
 
 with open(csvpath, newline='') as csvfile:
     
@@ -103,7 +103,7 @@ with open(csvpath, newline='') as csvfile:
     print(line10)
     print(line11)
 
-    pollResults = open("/python-challenge/PyPoll/pollResults.txt", "w")
+    pollResults = open("pollResults.txt", "w")
     pollResults.write(line01+"\n")
     pollResults.write(line02+"\n")
     pollResults.write(line03+"\n")
